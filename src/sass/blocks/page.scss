@@ -3,9 +3,11 @@
 }
 
 .page__body {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  min-height: 100%;
   margin: 0 auto;
   padding: 0;
+
+  min-height: 100%;
+  
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }

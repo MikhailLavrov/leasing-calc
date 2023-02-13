@@ -1,12 +1,50 @@
 <!DOCTYPE html>
-<html class="page" lang="en">
-<head>
+<html class="page" lang="ru">
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Лизинговый калькулятор</title>
     <link rel="stylesheet" href="./css/style.min.css">
-</head>
-<body class="page__body">
-    Hello world!
-</body>
+  </head>
+  <body class="page__body">
+    <header></header>
+    <main>
+      <section class="container">
+        <h1>Рассчитайте стоимость автомобиля в лизинг</h1>
+        <div>
+          <form action="https://echo.htmlacademy.ru" method="get">
+            <fieldset>
+              <legend class="visually-hidden">Желаемая сумма кредита</legend>
+              <label for="desired-amount">Желаемая сумма кредита</label>
+              <input type="number" name="desired-amount" id="desired-amount">
+            </fieldset>
+            <fieldset>
+              <legend class="visually-hidden">Первоначальный взнос</legend>
+              <label for="initial-fee">Первоначальный взнос</label>
+              <input type="number" name="initial-fee" id="initial-fee">
+            </fieldset>
+            <fieldset>
+              <legend class="visually-hidden">Срок лизинга</legend>
+              <label for="lease-term">Срок лизинга</label>
+              <input type="number" name="lease-term" id="lease-term">
+            </fieldset>
+            <fieldset>
+              <legend class="visually-hidden">Сумма договора лизинга</legend>
+              <label for="lease-amount">Сумма договора лизинга</label>
+              <input type="number" name="lease-amount" id="lease-amount">
+            </fieldset>
+            <fieldset>
+              <legend class="visually-hidden">Ежемесячный платеж от</legend>
+              <label for="monthly payment">Ежемесячный платеж от</label>
+              <input type="number" name="monthly payment" id="monthly payment">
+            </fieldset>
+            <div>
+              <button type="submit">Оставить заявку</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer></footer>
+  </body>
 </html>
