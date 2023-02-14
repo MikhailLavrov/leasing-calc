@@ -1,7 +1,7 @@
-import { debounce } from './utils/debounce.js';
 import { getDepositDisplayValue, getDepositRangeValue, calculatePercent, getMounthlyPayment, getDealAmount} from "./calculations.js";
-import { getFormattedValue } from './utils/format.js';
+import { getFormattedValue, unformatValue } from './utils/format.js';
 import { getInitialValues } from './initialValues.js';
+import { checkIsEmpty } from "./checkIsEmpty.js";
 import * as masksApply from './utils/masks.js';
 
 const creditForm = document.getElementById("creditForm");
@@ -17,12 +17,7 @@ window.addEventListener('DOMContentLoaded', () => {
   getInitialValues();
   masksApply;
 
-  let checkIsEmpty = () => {
-    if (priceDisplay.value === '' || depositDisplay.value === '' || creditTimeDisplay.value === '') {
-      dealAmount.value = 0;
-      monthlyPayment.value = 0;
-    }
-  }
+  console.log(typeof unformatValue(priceDisplay.value));
 
   // Связываем значения полей Стоимость кредита, Первоначальный взнос и %
   priceDisplay.addEventListener("input", getDepositDisplayValue)
