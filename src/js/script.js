@@ -1,41 +1,28 @@
+import { debounce } from './utils/debounce.js';
+import { getDepositDisplayValue, getDepositRangeValue, calculatePercent, getMounthlyPayment} from "./calculations.js";
+
 const priceDisplay = document.getElementById("priceDisplay");
 const priceRange = document.getElementById("priceRange");
 const depositDisplay = document.getElementById("depositDisplay");
 const depositRange = document.getElementById("depositRange");
 const depositPercent = document.getElementById("depositPercent");
+const monthlyPayment = document.getElementById("monthlyPayment");
+const creditForm = document.getElementById("creditForm");
 
 window.addEventListener('DOMContentLoaded', () => {
-
-  // Задаем начальное состояние значений полей Первоначальный взнос
+  // Задаем начальное состояние значений полей Первоначальный взнос и значение процентного отношения
   depositRange.value = depositDisplay.value / priceRange.value;
   depositDisplay.value = Math.round(priceRange.value * depositRange.value);
-
-  // Задаем начальное состояние значения процентного отношения
   depositPercent.textContent = priceDisplay.value/depositDisplay.value + '%';
 
-  // Связываем значения полей Стоимость кредита и Первоначальный взнос в %
-  priceDisplay.addEventListener("input", () => {
-    depositDisplay.value = Math.round(priceRange.value * depositRange.value);
-  })
-  priceRange.addEventListener("input", () => {
-    depositDisplay.value = Math.round(priceRange.value * depositRange.value);
-  })
-  depositDisplay.addEventListener("input", () => {
-    depositRange.value = depositDisplay.value / priceRange.value;
-  })
-  depositRange.addEventListener("input", () => {
-    depositDisplay.value = Math.round(priceRange.value * depositRange.value);
-  })
+  // Связываем значения полей Стоимость кредита, Первоначальный взнос и %
+  priceDisplay.addEventListener("input", getDepositDisplayValue)
+  priceRange.addEventListener("input", getDepositDisplayValue)
+  depositDisplay.addEventListener("input", getDepositRangeValue)
+  depositRange.addEventListener("input", getDepositDisplayValue)
+  depositRange.addEventListener("input", calculatePercent);
 
-  // Подписываем значение поля с процентным соотношением на изменение вводных данных
-  const calculatePercent = () => {
-    depositPercent.textContent = ((depositDisplay.value / priceDisplay.value) * 100).toFixed(0) + '%';
-  }
-  depositRange.addEventListener("input", () => {
-    calculatePercent();
-  });
-
+  // Присваиваем значение Ежемесячный платеж соответствующему полю в таблице и подписываем на изменения
+  const renderMounthlyPayment = () => monthlyPayment.value = getMounthlyPayment();
+  creditForm.addEventListener('input', debounce(renderMounthlyPayment));
 });
-
-
-
