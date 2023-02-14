@@ -10,10 +10,19 @@ const priceRange = document.getElementById("priceRange");
 const depositDisplay = document.getElementById("depositDisplay");
 const depositRange = document.getElementById("depositRange");
 const creditTimeDisplay = document.getElementById("creditTimeDisplay");
+const dealAmount = document.getElementById("dealAmount");
+const monthlyPayment = document.getElementById("monthlyPayment");
 
 window.addEventListener('DOMContentLoaded', () => {
   getInitialValues();
   masksApply;
+
+  let checkIsEmpty = () => {
+    if (priceDisplay.value === '' || depositDisplay.value === '' || creditTimeDisplay.value === '') {
+      dealAmount.value = 0;
+      monthlyPayment.value = 0;
+    }
+  }
 
   // Связываем значения полей Стоимость кредита, Первоначальный взнос и %
   priceDisplay.addEventListener("input", getDepositDisplayValue)
@@ -23,7 +32,9 @@ window.addEventListener('DOMContentLoaded', () => {
   depositRange.addEventListener("input", calculatePercent);
 
   // Присваиваем значение Ежемесячный платеж соответствующему полю в таблице и подписываем на изменения
-  creditForm.addEventListener('input', debounce(getMounthlyPayment));
-  creditForm.addEventListener('input', debounce(getDealAmount));
+  creditForm.addEventListener('input', getMounthlyPayment);
+  creditForm.addEventListener('input', getDealAmount);
   creditForm.addEventListener('input', () => priceDisplay.value = getFormattedValue(priceDisplay.value));
+
+  creditForm.addEventListener('input', checkIsEmpty);
 });

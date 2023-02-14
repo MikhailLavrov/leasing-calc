@@ -1,4 +1,6 @@
 import { getFormattedValue, unformatValue } from "./utils/format.js";
+const dealAmount = document.getElementById("dealAmount");
+const monthlyPayment = document.getElementById("monthlyPayment");
 
 export const getDepositDisplayValue = () => {
   depositDisplay.value = Math.round(priceRange.value * depositRange.value);
