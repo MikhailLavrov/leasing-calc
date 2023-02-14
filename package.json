@@ -20,18 +20,19 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MikhailLavrov/NewProject.git"
+    "url": "git+https://github.com/MikhailLavrov/leasing-calc.git"
   },
   "author": "Mikhail Lavrov",
   "bugs": {
-    "url": "https://github.com/MikhailLavrov/NewProject/issues"
+    "url": "https://github.com/MikhailLavrov/leasing-calc/issues"
   },
-  "homepage": "https://github.com/MikhailLavrov/NewProject#readme",
+  "homepage": "https://github.com/MikhailLavrov/leasing-calc#readme",
   "devDependencies": {
     "@htmlacademy/editorconfig-cli": "^1.0.0",
     "autoprefixer": "^10.4.7",
     "browser-sync": "^2.27.9",
     "del": "^6.0.0",
+    "gh-pages": "^5.0.0",
     "gulp": "^4.0.2",
     "gulp-dart-sass": "^1.0.2",
     "gulp-htmlmin": "^5.0.1",
@@ -48,8 +49,5 @@
     "stylelint": "^13.13.1",
     "stylelint-config-htmlacademy": "^0.1.12",
     "stylelint-order": "^4.1.0"
-  },
-  "dependencies": {
-    "gh-pages": "^3.2.3"
   }
 }

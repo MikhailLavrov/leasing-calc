@@ -44,13 +44,13 @@
 }
 
 .calculator__input-wrapper {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  grid-template-rows: auto auto;
+  position: relative;
 }
 
 .calculator__form input[type=text] {
   padding: 20px;
+  padding-right: 80px;
+  width: 100%;
 
   position: relative;
 
@@ -63,8 +63,7 @@
   color: $color-dark-4;
 
   background: $color-light-1;
-  border-top-left-radius: 16px;
-  border-bottom-left-radius: 16px;
+  border-radius: 16px;
   border: none;
   outline: none;
 
@@ -84,6 +83,7 @@
 .calculator__form input[readonly] {
   padding: 0;
   background-color: transparent;
+  border-radius: 0;
   color: $color-dark-2;
   font-family: $ff-nekst;
   font-style: normal;
@@ -103,16 +103,18 @@
   text-align: right;
   color: $color-dark-4;
 
+  position: absolute;
+  right: 20px;
+  top: calc(50% - 10px);
   z-index: 1;
+  border-radius: 16px;
+}
 
-  grid-column: 2/3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  background-color: $color-light-1;
-  border-top-right-radius: 16px;
-  border-bottom-right-radius: 16px;
+.calculator__form .calculator__label--percent {
+  padding: 14px;
+  background-color: $color-light-4;
+  top: calc(50% - 24px);
+  right: 10px;
 }
 
 .calculator__submit-button {
@@ -162,9 +164,6 @@ input[type=range] {
 
   background: $color-default-contrast;
   z-index: 1;
-
-  grid-row: 2/3;
-  grid-column: 1/-1;
   cursor: pointer;
 }
 
