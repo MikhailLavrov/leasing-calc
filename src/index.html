@@ -17,7 +17,7 @@
             <fieldset>
               <legend>Желаемая сумма кредита</legend>
               <label for="priceDisplay">&#8381;</label>
-              <input type="text" id="priceDisplay" value="3300000" oninput="priceRange.value = this.value" >
+              <input type="text" id="priceDisplay" value="3300000" oninput="priceRange.value = this.value">
               <input type="range" class="styled-slider slider-progress" id="priceRange" min="1500000" max="10000000" value="3300000" oninput="priceDisplay.value = this.value">
             </fieldset>
 
@@ -52,6 +52,7 @@
       </section>
     </main>
     <footer></footer>
+    <script src="https://unpkg.com/imask"></script>
     <script src="./js/script.js" type="module"></script>
   </body>
 </html>

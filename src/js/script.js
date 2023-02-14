@@ -2,15 +2,18 @@ import { debounce } from './utils/debounce.js';
 import { getDepositDisplayValue, getDepositRangeValue, calculatePercent, getMounthlyPayment, getDealAmount} from "./calculations.js";
 import { getFormattedValue } from './utils/format.js';
 import { getInitialValues } from './initialValues.js';
+import * as masksApply from './utils/masks.js';
 
 const creditForm = document.getElementById("creditForm");
 const priceDisplay = document.getElementById("priceDisplay");
 const priceRange = document.getElementById("priceRange");
 const depositDisplay = document.getElementById("depositDisplay");
 const depositRange = document.getElementById("depositRange");
+const creditTimeDisplay = document.getElementById("creditTimeDisplay");
 
 window.addEventListener('DOMContentLoaded', () => {
   getInitialValues();
+  masksApply;
 
   // Связываем значения полей Стоимость кредита, Первоначальный взнос и %
   priceDisplay.addEventListener("input", getDepositDisplayValue)
