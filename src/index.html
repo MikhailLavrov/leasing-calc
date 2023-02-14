@@ -9,43 +9,49 @@
   <body>
     <header></header>
     <main>
-      <section class="caclulator container">
-        <h1 class="caclulator__title">Рассчитайте стоимость автомобиля в лизинг</h1>
-        <div class="caclulator__inner-wrapper">
-          <form class="caclulator__form" id="creditForm" action="https://echo.htmlacademy.ru" method="get">
+      <section class="calculator container">
+        <h1 class="calculator__title">Рассчитайте стоимость автомобиля в лизинг</h1>
+        <div class="calculator__inner-wrapper">
+          <form class="calculator__form" id="creditForm" action="https://echo.htmlacademy.ru" method="get">
 
             <fieldset>
               <legend>Желаемая сумма кредита</legend>
-              <label for="priceDisplay">&#8381;</label>
-              <input type="text" id="priceDisplay" value="3300000" oninput="priceRange.value = this.value">
-              <input type="range" class="styled-slider slider-progress" id="priceRange" min="1500000" max="10000000" value="3300000" oninput="priceDisplay.value = this.value">
+              <div class="calculator__input-wrapper">
+                <label for="priceDisplay">&#8381;</label>
+                <input type="text" id="priceDisplay" value="3300000" oninput="priceRange.value = this.value">
+                <input type="range" class="styled-slider slider-progress" id="priceRange" min="1500000" max="10000000" value="3300000" oninput="priceDisplay.value = this.value">
+              </div>
             </fieldset>
 
             <fieldset>
               <legend>Первоначальный взнос</legend>
-              <label for="depositDisplay" id="depositPercent">%</label>
-              <input type="text" id="depositDisplay" value="0.1" oninput="depositRange.value = this.value">
-              <input type="range" id="depositRange" min="0.1" max="0.6" value="0.1" step="0.01" oninput="depositDisplay.value = this.value">
+              <div class="calculator__input-wrapper">
+                <label for="depositDisplay" id="depositPercent">%</label>
+                <input type="text" id="depositDisplay" value="0.1" oninput="depositRange.value = this.value">
+                <input type="range" id="depositRange" min="0.1" max="0.6" value="0.1" step="0.01" oninput="depositDisplay.value = this.value">
+              </div>
             </fieldset>
 
             <fieldset>
               <legend>Срок лизинга</legend>
-              <label for="desiredAmountText">мес.</label>
-              <input type="text" id="creditTimeDisplay" value="60" oninput="creditTimeRange.value = this.value">
-              <input type="range" id="creditTimeRange" min="6" max="120" value="60" oninput="creditTimeDisplay.value = this.value">
+              <div class="calculator__input-wrapper">
+                <label for="creditTimeDisplay">мес.</label>
+                <input type="text" id="creditTimeDisplay" value="60" oninput="creditTimeRange.value = this.value">
+                <input type="range" id="creditTimeRange" min="6" max="120" value="60" oninput="creditTimeDisplay.value = this.value">
+              </div>
             </fieldset>
             <fieldset>
               <legend>Сумма договора лизинга</legend>
-              <label for="dealAmount">&#8381;</label>
-              <input type="text" id="dealAmount" readonly value="">
+              <label class="visually-hidden" for="dealAmount">Сумма договора лизинга</label>
+              <input type="text" id="dealAmount" readonly>
             </fieldset>
             <fieldset>
               <legend>Ежемесячный платеж от</legend>
-              <label for="monthlyPayment">&#8381;</label>
-              <input type="text" id="monthlyPayment" readonly value="">
+              <label class="visually-hidden" for="monthlyPayment">Ежемесячный платеж от</label>
+              <input type="text" id="monthlyPayment" readonly>
             </fieldset>
             <div>
-              <button type="submit">Оставить заявку</button>
+              <button class="calculator__submit-button" type="submit">Оставить заявку</button>
             </div>
           </form>
         </div>
