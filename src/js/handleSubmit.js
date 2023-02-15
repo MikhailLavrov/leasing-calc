@@ -21,7 +21,7 @@ export const handleFormSubmit = (event) => {
   event.preventDefault()
 
   submitBtn.setAttribute('disabled', 'disabled');
-  submitBtn.innerHTML = '<img src="../img/loader.png" alt="Loading..." />';
+  submitBtn.innerHTML = '<img src="./img/loader.png" alt="Loading..." />';
 
   setTimeout(() => {
     serializeForm(form);
