@@ -17,7 +17,7 @@
               <legend class="form__legend">Желаемая сумма кредита</legend>
               <div class="form__input-wrapper">
                 <label class="form__label" for="priceDisplay">&#8381;</label>
-                <input type="text" id="priceDisplay" value="3300000" oninput="priceRange.value = this.value">
+                <input type="text" id="priceDisplay" name="credit" value="3300000" oninput="priceRange.value = this.value">
               </div>
               <input type="range" id="priceRange" step="10000" min="1500000" max="10000000" value="3300000" oninput="priceDisplay.value = this.value">
             </fieldset>
@@ -25,7 +25,7 @@
               <legend class="form__legend">Первоначальный взнос</legend>
               <div class="form__input-wrapper">
                 <label class="form__label form__label--percent" for="depositDisplay" id="depositPercent">%</label>
-                <input type="text" id="depositDisplay" value="0.1" oninput="depositRange.value = this.value">
+                <input type="text" id="depositDisplay" name="deposit" value="0.1" oninput="depositRange.value = this.value">
               </div>
               <input type="range" id="depositRange" min="0.1" max="0.6" value="0.1" step="0.01" oninput="depositDisplay.value = this.value">
             </fieldset>
@@ -33,22 +33,22 @@
               <legend class="form__legend">Срок лизинга</legend>
               <div class="form__input-wrapper">
                 <label class="form__label" for="creditTimeDisplay">мес.</label>
-                <input type="text" id="creditTimeDisplay" value="60" oninput="creditTimeRange.value = this.value">
+                <input type="text" id="creditTimeDisplay" name="date" value="60" oninput="creditTimeRange.value = this.value">
               </div>
               <input type="range" id="creditTimeRange" min="6" max="120" value="60" oninput="creditTimeDisplay.value = this.value">
             </fieldset>
             <fieldset class="form__fieldset form__fieldset--readonly">
               <legend class="form__legend">Сумма договора лизинга</legend>
               <label class="visually-hidden" for="dealAmount">Сумма договора лизинга</label>
-              <input type="text" id="dealAmount" readonly>
+              <input type="text" name="dealPrice" id="dealAmount" readonly>
             </fieldset>
             <fieldset class="form__fieldset form__fieldset--readonly">
               <legend class="form__legend">Ежемесячный платеж от</legend>
               <label class="visually-hidden" for="monthlyPayment">Ежемесячный платеж от</label>
-              <input type="text" id="monthlyPayment" readonly>
+              <input type="text" name="monthlyPayment" id="monthlyPayment" readonly>
             </fieldset>
             <div>
-              <button class="form__submit-button" type="submit" name="creditForm">Оставить заявку</button>
+              <button class="form__submit-button" id="creditFormSubmit" type="submit" name="creditForm">Оставить заявку</button>
             </div>
           </form>
         </div>

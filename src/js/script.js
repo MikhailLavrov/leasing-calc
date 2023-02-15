@@ -2,6 +2,7 @@ import { getDepositDisplayValue, getDepositRangeValue, calculatePercent, getMoun
 import { getFormattedValue, unformatValue } from './utils/format.js';
 import { getInitialValues } from './initialValues.js';
 import { checkIsEmpty } from "./checkIsEmpty.js";
+import { handleFormSubmit } from "./handleSubmit.js";
 import * as masksApply from './utils/masks.js';
 
 const creditForm = document.getElementById("creditForm");
@@ -12,10 +13,15 @@ const depositRange = document.getElementById("depositRange");
 const creditTimeDisplay = document.getElementById("creditTimeDisplay");
 const dealAmount = document.getElementById("dealAmount");
 const monthlyPayment = document.getElementById("monthlyPayment");
+const form = document.getElementById('creditForm');
+const submitBtn = document.getElementById('creditFormSubmit');
 
 window.addEventListener('DOMContentLoaded', () => {
   getInitialValues();
+
   masksApply;
+
+  form.addEventListener('submit', handleFormSubmit)
 
   // Связываем значения полей Стоимость кредита, Первоначальный взнос и %
   priceDisplay.addEventListener("input", getDepositDisplayValue)

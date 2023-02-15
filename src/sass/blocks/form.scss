@@ -126,6 +126,7 @@
 .form__submit-button {
   padding: 20px;
   width: 100%;
+  min-height: 60px;
 
   display: flex;
   flex-direction: column;
@@ -155,11 +156,13 @@
   }
 
   &:disabled {
-    background: rgba($color-default-contrast, 0.4);
+    background-color: rgba($color-default-contrast, 0.4);
+    cursor: progress;
   }
 
   @include vp-768 {
     padding: 14px 14px 18px;
+    min-height: 68px;
 
     font-size: 30px;
     line-height: 36px;
