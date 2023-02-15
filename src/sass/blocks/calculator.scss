@@ -1,6 +1,17 @@
 .calculator {
-  padding-top: 45px;
-  padding-bottom: 45px;
+  // padding-top: 45px;
+  // padding-bottom: 45px;
+  padding: 20px;
+
+  @include vp-768 {
+    // padding: 64px 38px 64px;
+    padding: 36px;
+  }
+
+  @include vp-1120 {
+    padding: 213px 48px 213px;
+    padding: 48px;
+  }
 }
 
 .calculator__title {
@@ -14,186 +25,16 @@
   line-height: 90%;
   /* or 31px */
   color: $color-dark-1;
-}
 
-.calculator__form fieldset {
-  margin: 0;
-  padding: 0;
+  @include vp-768 {
+    margin-bottom: 44px;
 
-  display: flex;
-  flex-direction: column;
-
-  border: none;
-
-  &:not(:last-child) {
-    margin-bottom: 16px;
-  }
-}
-
-.calculator__form legend {
-  margin-bottom: 8px;
-  padding: 0;
-
-  font-family: $ff-gilroy;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 136%;
-  /* identical to box height, or 19px */
-  color: $color-dark-4;
-}
-
-.calculator__input-wrapper {
-  position: relative;
-}
-
-.calculator__form input[type=text] {
-  padding: 20px;
-  padding-right: 80px;
-  width: 100%;
-
-  position: relative;
-
-  font-family: $ff-nekst;
-  font-style: normal;
-  font-weight: 900;
-  font-size: 22px;
-  line-height: 20px;
-  /* identical to box height, or 91% */
-  color: $color-dark-4;
-
-  background: $color-light-1;
-  border-radius: 16px;
-  border: none;
-  outline: none;
-
-  grid-column: 1/2;
-  grid-row: 1/2;
-
-  &:focus:not([readonly])  {
-    box-shadow: 0 0 0 2px $color-light-1 inset;
-    background-color: #fff;
+    font-size: 54px;
   }
 
-  &:disabled {
-    opacity: 0.6;
+  @include vp-1120 {
+    margin-bottom: 32px;
+
+    max-width: 60%;
   }
 }
-
-.calculator__form input[readonly] {
-  padding: 0;
-  background-color: transparent;
-  border-radius: 0;
-  color: $color-dark-2;
-  font-family: $ff-nekst;
-  font-style: normal;
-  font-weight: 900;
-  font-size: 22px;
-  line-height: 20px;
-  /* identical to box height, or 91% */
-}
-
-.calculator__form label {
-  font-family: $ff-nekst;
-  font-style: normal;
-  font-weight: 900;
-  font-size: 22px;
-  line-height: 20px;
-  /* identical to box height, or 91% */
-  text-align: right;
-  color: $color-dark-4;
-
-  position: absolute;
-  right: 20px;
-  top: calc(50% - 10px);
-  z-index: 1;
-  border-radius: 16px;
-}
-
-.calculator__form .calculator__label--percent {
-  padding: 14px;
-  background-color: $color-light-4;
-  top: calc(50% - 24px);
-  right: 10px;
-}
-
-.calculator__submit-button {
-  padding: 20px;
-  width: 100%;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  font-family: $ff-nekst;
-  font-style: normal;
-  font-weight: 900;
-  font-size: 22px;
-  line-height: 20px;
-  /* identical to box height, or 91% */
-  color: $color-default-white;
-
-  background: $color-default-contrast;
-  border:  none;
-  border-radius: 40px;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-
-  &:hover {
-    background-color: $color-dark-1;
-  }
-
-  &:active {
-    background-color: $color-dark-3;
-  }
-
-  &:disabled {
-    background: rgba($color-default-contrast, 0.4);
-  }
-}
-
-// Стилизуем ренж
-input[type=range] {
-  -webkit-appearance: none; /* Убираем стандартные стили браузера */
-  margin: 0 auto;
-  margin-top: -2px;
-
-  width: 90%;
-  height: 2px;
-
-  background: $color-default-contrast;
-  z-index: 1;
-  cursor: pointer;
-}
-
-/* Стилизуем прогресс */
-input[type=range]::-webkit-progress-value {
-  background: $color-default-black;
-  z-index: 9999;
-}
-
-/* Создаем псевдоэлемент для отображения ползунка */
-input[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Убираем стандартные стили браузера */
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: $color-default-contrast;
-}
-
-/* Стилизуем псевдоэлемент для отображения прогресса */
-input[type=range]::-webkit-slider-runnable-track:before {
-  content: 'fhgf';
-  position: absolute;
-  height: 12px;
-  background: $color-default-black;
-  width: 0; /* Начальная ширина элемента */
-}
-
-/* Обновляем ширину прогресса в зависимости от значения ползунка */
-input[type=range]::-webkit-slider-thumb:active::-webkit-slider-runnable-track:before,
-input[type=range]:active::-webkit-slider-runnable-track:before {
-  width: calc(((100% - 20px) * 1) / 100);
-}
-

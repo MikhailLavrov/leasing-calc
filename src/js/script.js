@@ -17,8 +17,6 @@ window.addEventListener('DOMContentLoaded', () => {
   getInitialValues();
   masksApply;
 
-  console.log(typeof unformatValue(priceDisplay.value));
-
   // Связываем значения полей Стоимость кредита, Первоначальный взнос и %
   priceDisplay.addEventListener("input", getDepositDisplayValue)
   priceRange.addEventListener("input", getDepositDisplayValue)

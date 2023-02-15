@@ -58,8 +58,8 @@
   }
 }
 
-@mixin vp-1200 {
-  @media (min-width: $vp-1200) {
+@mixin vp-1120 {
+  @media (min-width: $vp-1120) {
     @content;
   }
 }

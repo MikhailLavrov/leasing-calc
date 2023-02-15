@@ -1,4 +1,5 @@
 import { getFormattedValue, unformatValue } from "./utils/format.js";
+
 const dealAmount = document.getElementById("dealAmount");
 const monthlyPayment = document.getElementById("monthlyPayment");
 
@@ -18,9 +19,11 @@ export const calculatePercent = () => {
 export const getMounthlyPayment = () => {
   monthlyPayment.value = Math.round((unformatValue(priceDisplay.value) - unformatValue(depositDisplay.value)) * (0.05 * Math.pow((1 + 0.05), unformatValue(creditTimeDisplay.value)) / (Math.pow((1 + 0.05), unformatValue(creditTimeDisplay.value)) - 1)));
   monthlyPayment.value = getFormattedValue(monthlyPayment.value);
+  monthlyPayment.value = monthlyPayment.value + " \u20BD";
 }
 
 export const getDealAmount = () => {
   dealAmount.value = unformatValue(depositDisplay.value) + (unformatValue(creditTimeDisplay.value) * unformatValue(monthlyPayment.value));
   dealAmount.value = getFormattedValue(dealAmount.value)
+  dealAmount.value = dealAmount.value + " \u20BD";
 }

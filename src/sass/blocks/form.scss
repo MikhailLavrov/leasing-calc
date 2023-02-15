@@ -1,0 +1,278 @@
+.form {
+  @include vp-768 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  @include vp-1120 {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 44px 32px;
+    align-items: center;
+  }
+}
+
+.form__fieldset {
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  border: none;
+
+  &--editable {
+    margin-bottom: 25px;
+
+    @include vp-768 {
+      margin-bottom: 0;
+
+      grid-column: 1/-1;
+      grid-auto-flow: row;
+    }
+
+    @include vp-1120 {
+      grid-column: auto;
+      grid-auto-flow: column;
+    }
+  }
+
+  &--readonly {
+    margin-bottom: 29px;
+
+    @include vp-768 {
+      margin-bottom: 12px;
+    }
+
+    @include vp-1120 {
+      margin-bottom: 0;
+    }
+
+    & .form__legend {
+      color: $color-dark-2;
+      @include vp-768 {
+        margin-bottom: 8px;
+      }
+    }
+  }
+}
+
+.form__legend {
+  margin-bottom: 8px;
+  padding: 0;
+
+  font-family: $ff-gilroy;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 136%;
+  /* identical to box height, or 19px */
+  color: $color-dark-4;
+
+  @include vp-768 {
+    margin-bottom: 24px;
+
+    font-size: 16px;
+    line-height: 20px;
+    /* identical to box height, or 125% */
+    color: $color-dark-3;
+  }
+}
+
+.form__input-wrapper {
+  position: relative;
+}
+
+.form__label {
+  font-family: $ff-nekst;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 22px;
+  line-height: 20px;
+  /* identical to box height, or 91% */
+  text-align: right;
+  color: $color-dark-4;
+
+  position: absolute;
+  right: 20px;
+  top: calc(50% - 10px);
+  z-index: 1;
+  border-radius: 16px;
+
+  @include vp-768 {
+    font-size: 30px;
+    line-height: 36px;
+    /* identical to box height, or 120% */
+    color: $color-dark-3;
+    top: calc(50% - 18px);
+  }
+
+  &--percent {
+    padding: 14px;
+    background-color: $color-light-4;
+    top: calc(50% - 24px);
+    right: 10px;
+
+    @include vp-768 {
+      font-size: 20px;
+      line-height: 120%;
+      /* identical to box height, or 24px */
+      color: $color-dark-3;
+      top: calc(50% - 26px);
+    }
+  }
+}
+
+.form__submit-button {
+  padding: 20px;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-family: $ff-nekst;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 22px;
+  line-height: 20px;
+  /* identical to box height, or 91% */
+  color: $color-default-white;
+
+  background: $color-default-contrast;
+  border:  none;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: $color-dark-1;
+  }
+
+  &:active {
+    background-color: $color-dark-3;
+  }
+
+  &:disabled {
+    background: rgba($color-default-contrast, 0.4);
+  }
+
+  @include vp-768 {
+    padding: 14px 14px 18px;
+
+    font-size: 30px;
+    line-height: 36px;
+    /* identical to box height, or 120% */
+  }
+}
+
+.form input[type=text] {
+  padding: 17px 20px;
+  padding-right: 80px;
+
+  width: 100%;
+
+  position: relative;
+
+  font-family: $ff-nekst;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 22px;
+  line-height: 20px;
+  /* identical to box height, or 91% */
+  color: $color-dark-4;
+
+  background: $color-light-1;
+  border-radius: 16px;
+  border: none;
+  outline: none;
+
+  &:focus:not([readonly])  {
+    box-shadow: 0 0 0 2px $color-light-1 inset;
+    background-color: #fff;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+  }
+
+  @include vp-768 {
+    padding: 16px 24px;
+    padding-right: 80px;
+
+    font-size: 30px;
+    line-height: 36px;
+    color: $color-dark-3;
+  }
+}
+
+.form input[readonly] {
+  padding: 0;
+
+  font-family: $ff-nekst;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 22px;
+  line-height: 20px;
+  /* identical to box height, or 91% */
+  color: $color-dark-2;
+
+  background-color: transparent;
+  border-radius: 0;
+
+  @include vp-768 {
+    font-size: 54px;
+    line-height: 90%;
+    /* identical to box height, or 49px */
+  }
+}
+
+// ============================================================================
+
+input[type=range] {
+  -webkit-appearance: none; /* Убираем стандартные стили браузера */
+  margin: 0 auto;
+  margin-top: -2px;
+
+  width: 90%;
+  height: 2px;
+
+  background: $color-default-contrast;
+  z-index: 1;
+  cursor: pointer;
+
+  @include vp-768 {
+    width: 95%;
+  }
+}
+
+/* Стилизуем прогресс */
+input[type=range]::-webkit-progress-value {
+  background: $color-default-black;
+  z-index: 9999;
+}
+
+/* Создаем псевдоэлемент для отображения ползунка */
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Убираем стандартные стили браузера */
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: $color-default-contrast;
+}
+
+/* Стилизуем псевдоэлемент для отображения прогресса */
+input[type=range]::-webkit-slider-runnable-track:before {
+  content: 'fhgf';
+  position: absolute;
+  height: 12px;
+  background: $color-default-black;
+  width: 0; /* Начальная ширина элемента */
+}
+
+/* Обновляем ширину прогресса в зависимости от значения ползунка */
+input[type=range]::-webkit-slider-thumb:active::-webkit-slider-runnable-track:before,
+input[type=range]:active::-webkit-slider-runnable-track:before {
+  width: calc(((100% - 20px) * 1) / 100);
+}
