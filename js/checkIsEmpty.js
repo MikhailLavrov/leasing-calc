@@ -1,1 +1,0 @@
-import{unformatValue}from"./utils/format.js";export const checkIsEmpty=()=>{(""===priceDisplay.value||""===depositDisplay.value||""===creditTimeDisplay.value||unformatValue(priceDisplay.value)<15e5||depositDisplay.value<33e4||creditTimeDisplay.value<6)&&(dealAmount.value=0,monthlyPayment.value=0)};
