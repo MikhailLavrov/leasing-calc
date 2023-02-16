@@ -17,7 +17,7 @@
               <legend class="form__legend">Желаемая сумма кредита</legend>
               <div class="form__input-wrapper">
                 <label class="form__label" for="priceDisplay">&#8381;</label>
-                <input type="text" id="priceDisplay" name="credit" value="3300000" oninput="priceRange.value = this.value">
+                <input type="text" id="priceDisplay" name="credit" value="3300000" oninput="priceRange.value = this.value" placeholder="1 500 000 - 10 000 000">
               </div>
               <input type="range" id="priceRange" step="10000" min="1500000" max="10000000" value="3300000" oninput="priceDisplay.value = this.value">
             </fieldset>
@@ -25,7 +25,7 @@
               <legend class="form__legend">Первоначальный взнос</legend>
               <div class="form__input-wrapper">
                 <label class="form__label form__label--percent" for="depositDisplay" id="depositPercent">%</label>
-                <input type="text" id="depositDisplay" name="deposit" value="0.1" oninput="depositRange.value = this.value">
+                <input type="text" id="depositDisplay" name="deposit" value="0.1" oninput="depositRange.value = this.value" placeholder="10% - 60%">
               </div>
               <input type="range" id="depositRange" min="0.1" max="0.6" value="0.1" step="0.01" oninput="depositDisplay.value = this.value">
             </fieldset>
@@ -33,7 +33,7 @@
               <legend class="form__legend">Срок лизинга</legend>
               <div class="form__input-wrapper">
                 <label class="form__label" for="creditTimeDisplay">мес.</label>
-                <input type="text" id="creditTimeDisplay" name="date" value="60" oninput="creditTimeRange.value = this.value">
+                <input type="text" id="creditTimeDisplay" name="date" value="60" oninput="creditTimeRange.value = this.value" placeholder="6 - 120">
               </div>
               <input type="range" id="creditTimeRange" min="6" max="120" value="60" oninput="creditTimeDisplay.value = this.value">
             </fieldset>

@@ -200,6 +200,11 @@
     opacity: 0.6;
   }
 
+  &::placeholder {
+    font-size: 70%;
+    color: rgba($color-dark-1, 0.3);
+  }
+
   @include vp-768 {
     padding: 16px 24px;
     padding-right: 80px;
@@ -232,7 +237,6 @@
 }
 
 // ============================================================================
-
 input[type=range] {
   -webkit-appearance: none; /* Убираем стандартные стили браузера */
   margin: 0 auto;
