@@ -1,5 +1,5 @@
 // Маска на поле Сумма кредита
-export const priceMask = IMask(priceDisplay, {
+IMask(priceDisplay, {
   mask: Number,  // enable number mask
 
   // other options are optional with defaults below
@@ -17,7 +17,7 @@ export const priceMask = IMask(priceDisplay, {
 });
 
 // Маска на поле Первоначальный взнос
-export const depositMask = IMask(depositDisplay, {
+IMask(depositDisplay, {
   mask: Number,  // enable number mask
 
   // other options are optional with defaults below
