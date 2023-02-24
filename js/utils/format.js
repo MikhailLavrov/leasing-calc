@@ -1,1 +1,0 @@
-export const getFormattedValue=t=>("string"!=typeof t&&(t=t.toString()),t.replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g,"$1 "));export const unformatValue=t=>parseInt(t.replace(/\s+/g,""));
