@@ -1,25 +1,24 @@
-import { getDepositDisplayValue} from "./calculations.js";
+import { getDepositDisplayValue } from "./calculations.js";
 import { getInitialValues } from './initialValues.js';
 import { handleFormSubmit } from "./handleSubmit.js";
 import { handlePriceChange, handleDepositChange, handleDepositRangeChange, handleTotalChange } from "./handles.js";
 import * as masksApply from './utils/masks.js';
 
-const creditForm = document.getElementById("creditForm");
-const priceDisplay = document.getElementById("priceDisplay");
-const priceRange = document.getElementById("priceRange");
-const depositDisplay = document.getElementById("depositDisplay");
-const depositRange = document.getElementById("depositRange");
-const form = document.getElementById('creditForm');
+const creditForm = $("#creditForm");
+const priceDisplay = $("#priceDisplay");
+const priceRange = $("#priceRange");
+const depositDisplay = $("#depositDisplay");
+const depositRange = $("#depositRange");
 
-window.addEventListener('DOMContentLoaded', () => {
+$(document).ready(() => {
   getInitialValues();
 
   masksApply;
 
-  priceDisplay.addEventListener('input', handlePriceChange);
-  priceRange.addEventListener("input", getDepositDisplayValue)
-  depositDisplay.addEventListener("input", handleDepositChange)
-  depositRange.addEventListener("input", handleDepositRangeChange)
-  creditForm.addEventListener('input', handleTotalChange);
-  form.addEventListener('submit', handleFormSubmit)
+  priceDisplay.on('input', handlePriceChange);
+  priceRange.on("input", getDepositDisplayValue);
+  depositDisplay.on("input", handleDepositChange);
+  depositRange.on("input", handleDepositRangeChange);
+  creditForm.on('input', handleTotalChange);
+  creditForm.on('submit', handleFormSubmit);
 });

@@ -1,14 +1,20 @@
 import { unformatValue } from "./utils/format.js";
 
+const depositDisplay = $('#depositDisplay');
+const creditTimeDisplay = $('#creditTimeDisplay');
+const priceDisplay = $('#priceDisplay');
+const dealAmount = $('#dealAmount');
+const monthlyPayment = $('#monthlyPayment');
+
 export const valuesChecks = () => {
-  if (priceDisplay.value === '' ||
-      depositDisplay.value === '' ||
-      creditTimeDisplay.value === '' ||
-      unformatValue(priceDisplay.value) < 1500000 ||
-      depositDisplay.value < 330000 ||
-      creditTimeDisplay.value < 6)
-    {
-      dealAmount.value = 0;
-      monthlyPayment.value = 0;
-    }
+  if (priceDisplay.val() === '' ||
+    depositDisplay.val() === '' ||
+    creditTimeDisplay.val() === '' ||
+    unformatValue(priceDisplay.val()) < 1500000 ||
+    depositDisplay.val() < 330000 ||
+    creditTimeDisplay.val() < 6)
+  {
+    dealAmount.val(0);
+    monthlyPayment.val(0);
+  }
 }

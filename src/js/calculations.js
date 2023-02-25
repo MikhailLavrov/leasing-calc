@@ -1,29 +1,49 @@
 import { getFormattedValue, unformatValue } from "./utils/format.js";
 
-const dealAmount = document.getElementById("dealAmount");
-const monthlyPayment = document.getElementById("monthlyPayment");
+const dealAmount = $("#dealAmount");
+const monthlyPayment = $("#monthlyPayment");
 
 export const getDepositDisplayValue = () => {
-  depositDisplay.value = Math.round(priceRange.value * depositRange.value);
-  depositDisplay.value = getFormattedValue(depositDisplay.value);
-}
+  const depositDisplay = $("#depositDisplay");
+  const priceRange = $("#priceRange");
+  const depositRange = $("#depositRange");
+
+  depositDisplay.val(Math.round(priceRange.val() * depositRange.val()));
+  depositDisplay.val(getFormattedValue(depositDisplay.val()));
+};
 
 export const getDepositRangeValue = () => {
-  depositRange.value = unformatValue(depositDisplay.value) / priceRange.value;
-}
+  const depositDisplay = $("#depositDisplay");
+  const depositRange = $("#depositRange");
+  const priceRange = $("#priceRange");
+
+  depositRange.val(unformatValue(depositDisplay.val()) / priceRange.val());
+};
 
 export const calculatePercent = () => {
-  depositPercent.textContent = ((unformatValue(depositDisplay.value) / unformatValue(priceDisplay.value)) * 100).toFixed(0) + '%';
-}
+  const depositDisplay = $("#depositDisplay");
+  const priceDisplay = $("#priceDisplay");
+  const depositPercent = $("#depositPercent");
+
+  depositPercent.text(((unformatValue(depositDisplay.val()) / unformatValue(priceDisplay.val())) * 100).toFixed(0) + '%');
+};
 
 export const getMounthlyPayment = () => {
-  monthlyPayment.value = Math.round((unformatValue(priceDisplay.value) - unformatValue(depositDisplay.value)) * (0.05 * Math.pow((1 + 0.05), unformatValue(creditTimeDisplay.value)) / (Math.pow((1 + 0.05), unformatValue(creditTimeDisplay.value)) - 1)));
-  monthlyPayment.value = getFormattedValue(monthlyPayment.value);
-  monthlyPayment.value = monthlyPayment.value + " \u20BD";
-}
+  const priceDisplay = $("#priceDisplay");
+  const depositDisplay = $("#depositDisplay");
+  const creditTimeDisplay = $("#creditTimeDisplay");
+  const monthlyPayment = $("#monthlyPayment");
+
+  monthlyPayment.val(Math.round((unformatValue(priceDisplay.val()) - unformatValue(depositDisplay.val())) * (0.05 * Math.pow((1 + 0.05), unformatValue(creditTimeDisplay.val())) / (Math.pow((1 + 0.05), unformatValue(creditTimeDisplay.val())) - 1))));
+  monthlyPayment.val(getFormattedValue(monthlyPayment.val()));
+  monthlyPayment.val(monthlyPayment.val() + " \u20BD");
+};
 
 export const getDealAmount = () => {
-  dealAmount.value = unformatValue(depositDisplay.value) + (unformatValue(creditTimeDisplay.value) * unformatValue(monthlyPayment.value));
-  dealAmount.value = getFormattedValue(dealAmount.value)
-  dealAmount.value = dealAmount.value + " \u20BD";
-}
+  const depositDisplay = $("#depositDisplay");
+  const creditTimeDisplay = $("#creditTimeDisplay");
+
+  dealAmount.val(unformatValue(depositDisplay.val()) + (unformatValue(creditTimeDisplay.val()) * unformatValue(monthlyPayment.val())));
+  dealAmount.val(getFormattedValue(dealAmount.val()));
+  dealAmount.val(dealAmount.val() + " \u20BD");
+};

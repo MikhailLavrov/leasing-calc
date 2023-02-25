@@ -1,11 +1,11 @@
-const form = document.getElementById('creditForm');
-const submitBtn = document.getElementById('creditFormSubmit');
+const form = $('#creditForm');
+const submitBtn = $('#creditFormSubmit');
 
 const serializeForm = (formNode) => {
-  const { elements } = formNode;
+  const elements = formNode.serializeArray();
   const data = [];
 
-  Array.from(elements).forEach((element) => {
+  elements.forEach((element) => {
     const { name, value } = element;
     if (name && value) {
       data.push(`${name}: ${value}`);
@@ -18,14 +18,14 @@ const serializeForm = (formNode) => {
 };
 
 export const handleFormSubmit = (event) => {
-  event.preventDefault()
+  event.preventDefault();
 
-  submitBtn.setAttribute('disabled', 'disabled');
-  submitBtn.innerHTML = '<img src="./img/loader.png" alt="Loading..." />';
+  submitBtn.attr('disabled', 'disabled');
+  submitBtn.html('<img src="./img/loader.png" alt="Loading..." />');
 
   setTimeout(() => {
     serializeForm(form);
-    submitBtn.removeAttribute('disabled', 'disabled');
-    submitBtn.innerHTML = 'Оставить заявку';
+    submitBtn.removeAttr('disabled');
+    submitBtn.html('Оставить заявку');
   }, 500);
 };
